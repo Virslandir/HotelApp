@@ -1,0 +1,33 @@
+﻿@page  "{ArrivalDate}/{DepartureDate}/{RoomTypeId}"
+
+@{// TODO: Zasto Tim nije definisao format rute kao sto sam ja iznad? I i dalje mu radi rutiranje sa parametrima....
+}
+
+@model HotelRazorUI.Pages.BookRoomModel
+@{
+}
+
+<h1>BOOK ROOM</h1>
+<h2>Room type: @Model.RoomTypeId</h2>
+<h3>Arrival date: @Model.ArrivalDate.Date.ToString("dd/MM/yyyy")</h3>
+<h3>Departure date: @Model.DepartureDate.Date.ToString("dd/MM/yyyy")</h3>
+
+<div>
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="@Model.FirstName"></label>
+            <input asp-for="@Model.FirstName" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.LastName"></label>
+            <input asp-for="@Model.LastName" />
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Confirm Booking</button>
+        </div>
+    </form>
+</div>
+
+
+
+
