@@ -4,4 +4,4 @@ Persistence: MS SQL Server + Dapper
 
 
 
-Planned: Add a desktop app client for hotel staff will be added to allow checking in guests.
+Planned: Add a desktop app client for hotel staff to allow checking in guests.
