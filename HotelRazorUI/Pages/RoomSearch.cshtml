@@ -55,15 +55,16 @@
         <tbody>
             @foreach (var roomType in Model.AvailableRoomTypes)
             {
-                
+
                 var routeData = new Dictionary<string, string>
                     {
                     // TODO: pokusaj sa formatom MM-dd-yyyy da bi URL-ovi bili citljivi
-                        { "ArrivalDate", Model.ArrivalDate.Date.ToString("MM/dd/yyyy") },
-                        { "DepartureDate", Model.DepartureDate.Date.ToString("MM/dd/yyyy") },
-                        { "RoomTypeId", roomType.Id.ToString() }
+                        { "ArrivalDate", Model.ArrivalDate.Date.ToString("MM-dd-yyyy") },
+                        { "DepartureDate", Model.DepartureDate.Date.ToString("MM-dd-yyyy") },
+                        { "RoomTypeId", roomType.Id.ToString() },
+                        { "RoomTypeTitle", roomType.Title }
                     };
-                
+
 
                 <tr>
                     <td>
@@ -74,7 +75,7 @@
                         @string.Format(new System.Globalization.CultureInfo("en-US"),"{0:C}", roomType.PricePerNight)
                     </td>
                     <td>
-                        <a class="nav-link text-dark" asp-area="" asp-page="/BookRoom" asp-all-route-data="routeData">Book Now</a>
+                        <a class="nav-link text-info" asp-area="" asp-page="/BookRoom" asp-all-route-data="routeData">Book Now</a>
                     </td>
                 </tr>
             }

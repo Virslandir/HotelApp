@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLibrary", "DataAc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsoleUI", "TestConsoleUI\TestConsoleUI.csproj", "{FCD48E04-F514-4BEF-8A29-6D23BB2F220B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelRazorUI", "HotelRazorUI\HotelRazorUI.csproj", "{91F932B3-755F-4986-BFCE-D12FA5575DD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelRazorUI", "HotelRazorUI\HotelRazorUI.csproj", "{91F932B3-755F-4986-BFCE-D12FA5575DD5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

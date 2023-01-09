@@ -1,26 +1,35 @@
-﻿@page  "{ArrivalDate}/{DepartureDate}/{RoomTypeId}"
+﻿@page  "{ArrivalDate}/{DepartureDate}/{RoomTypeId}/{RoomTypeTitle}"
 
-@{// TODO: Zasto Tim nije definisao format rute kao sto sam ja iznad? I i dalje mu radi rutiranje sa parametrima....
+@{// SOLVED: Zasto Tim nije definisao format rute kao sto sam ja iznad? I i dalje mu radi rutiranje sa parametrima....
+  // Odgovor: zato sto ako se specificira ruta kao sto sam ja iznad uradio, http zahtev ce biti validan samo ukoliko
+  //          je usmeren na rutu sa bas takvim formatom. Odnosno, nece raditi /bookroom putanja jer joj fale parametri
 }
 
 @model HotelRazorUI.Pages.BookRoomModel
 @{
 }
 
-<h1>BOOK ROOM</h1>
-<h2>Room type: @Model.RoomTypeId</h2>
-<h3>Arrival date: @Model.ArrivalDate.Date.ToString("dd/MM/yyyy")</h3>
-<h3>Departure date: @Model.DepartureDate.Date.ToString("dd/MM/yyyy")</h3>
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<h1>Complete booking</h1>
+<h2>Room type: @Model.RoomTypeTitle</h2>
+<h4>Arrival date: @Model.ArrivalDate.Date.ToString("dd/MM/yyyy")</h4>
+<h4>Departure date: @Model.DepartureDate.Date.ToString("dd/MM/yyyy")</h4>
 
 <div>
     <form method="post">
         <div class="form-group">
             <label asp-for="@Model.FirstName"></label>
             <input asp-for="@Model.FirstName" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="@Model.LastName"></label>
             <input asp-for="@Model.LastName" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+
         </div>
         <div>
             <button type="submit" class="btn btn-primary">Confirm Booking</button>

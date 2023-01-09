@@ -1,8 +1,5 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 using DataAccessLibrary.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -22,17 +19,20 @@ namespace HotelRazorUI.Pages
         public DateTime DepartureDate { get; set; }
 
         [BindProperty]
-        [Display(Name = "First Name")]
         [Required]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         [BindProperty]
-        [Display(Name = "Last Name")]
         [Required]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [BindProperty(SupportsGet = true)]
         public int RoomTypeId { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string RoomTypeTitle  { get; set; }
 
         public BookRoomModel(IDatabaseCrud db)
         {
@@ -47,8 +47,16 @@ namespace HotelRazorUI.Pages
 
         public IActionResult OnPost()
         {
-            _db.BookARoom(FirstName, LastName, ArrivalDate, DepartureDate, RoomTypeId);
-            return RedirectToPage("Index");
+            if (ModelState.IsValid)
+            {
+                _db.BookARoom(FirstName, LastName, ArrivalDate, DepartureDate, RoomTypeId);
+                return RedirectToPage("BookingConfirmation");
+            }
+            else
+            {
+                return Page();
+            }
+            
         }
     }
 }
